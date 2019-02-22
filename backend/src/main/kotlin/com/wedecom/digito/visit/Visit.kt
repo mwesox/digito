@@ -19,7 +19,7 @@ class Visit() {
 
 
     @AggregateIdentifier
-    var id: String = ""
+    lateinit var id: String
 
     private var persons: MutableList<Person> = mutableListOf();
 

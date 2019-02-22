@@ -1,0 +1,1 @@
+java -jar C:\dev\AxonServer\axonserver-4.0.jar

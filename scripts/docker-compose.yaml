@@ -1,0 +1,30 @@
+version: '3'
+services:
+  axonserver:
+    image: axoniq/axonserver:latest
+    container_name: axonserver-digito
+    ports:
+      - "8024:8024"
+      - "8124:8124"
+  mongo:
+    image: mongo:latest
+    container_name: "mongo-digito"
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: digito
+  postgres:
+    image: postgres:9.6
+    container_name: postgres-digito
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: digito
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret
+  mongo-express:
+    container_name: mongo-express-digito
+    image: mongo-express
+    restart: always
+    ports:
+      - "8081:7081"
