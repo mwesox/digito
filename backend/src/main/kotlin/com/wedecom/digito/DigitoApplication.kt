@@ -22,14 +22,16 @@ class DigitoApplication(var cmdGtw: CommandGateway) : ApplicationRunner {
 
         var visitId = NanoIdUtils.randomNanoId(Random(), charArrayOf('a', 'b', 'c', 'd', 'e', 'f', 'g'), 8)
         var tableId = NanoIdUtils.randomNanoId()
+
+
         cmdGtw.sendAndWait<CreateVisit>(CreateVisit(visitId, tableId))
 
         var personId = UUID.randomUUID().toString()
 
-        cmdGtw.sendAndWait<AddPerson>(AddPerson(personId, visitId, "Thomas"))
-        cmdGtw.sendAndWait<AddPerson>(AddPerson(personId, visitId, "Hans"))
-        cmdGtw.sendAndWait<AddPerson>(AddPerson(personId, visitId, "Werner"))
-        cmdGtw.sendAndWait<AddPerson>(AddPerson(personId, visitId, "Franz"))
+        cmdGtw.sendAndWait<AddPerson>(AddPerson(visitId, personId, "Thomas"))
+        cmdGtw.sendAndWait<AddPerson>(AddPerson(visitId, personId, "Hans"))
+        cmdGtw.sendAndWait<AddPerson>(AddPerson(visitId, personId, "Werner"))
+        cmdGtw.sendAndWait<AddPerson>(AddPerson(visitId, personId, "Franz"))
     }
 }
 

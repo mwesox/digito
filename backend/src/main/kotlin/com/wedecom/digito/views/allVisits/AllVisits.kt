@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service
 import javax.persistence.Id
 
 @Document
-data class AllVisitEntity(@Id val id: String, val visitId: String, val personNames: MutableList<String>)
+data class AllVisitEntity(@Id val id: String, val visitId: String, val names: MutableList<String>)
 
 @Repository
 interface AllVisitsRepository: MongoRepository<AllVisitEntity, String>
@@ -31,7 +31,7 @@ class AllVisitsView(var repo: AllVisitsRepository){
     fun on(evt: PersonAdded) {
         log.info("event handler $evt") {  }
         repo.findById(evt.visitId).ifPresent {t: AllVisitEntity ->
-            t.personNames.add(evt.name)
+            t.names.add(evt.name)
             log.info ("Adding names $t")
             repo.save(t)
         }
