@@ -2,8 +2,8 @@ package com.wedecom.digito.order
 
 import com.aventrix.jnanoid.jnanoid.NanoIdUtils
 import com.wedecom.digito.api.CreateOrder
-import com.wedecom.digito.views.allVisits.AllVisitEntity
-import com.wedecom.digito.views.allVisits.AllVisitsRepository
+import com.wedecom.digito.views.visit.Visit
+import com.wedecom.digito.views.visit.VisitRepository
 import mu.KotlinLogging
 import org.axonframework.commandhandling.gateway.CommandGateway
 import org.springframework.web.bind.annotation.GetMapping
@@ -16,7 +16,7 @@ import java.util.concurrent.CompletableFuture
 @RequestMapping("/api/orders")
 class OrdersController(
         var cmdGtw: CommandGateway,
-        var repo: AllVisitsRepository
+        var repo: VisitRepository
 ) {
 
     private val log = KotlinLogging.logger {}
@@ -29,7 +29,7 @@ class OrdersController(
     }
 
     @GetMapping
-    fun getAllVisits(): List<AllVisitEntity> {
+    fun getAllVisits(): List<Visit> {
         return repo.findAll()
     }
 }

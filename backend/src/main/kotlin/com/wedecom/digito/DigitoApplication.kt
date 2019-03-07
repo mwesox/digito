@@ -1,15 +1,11 @@
 package com.wedecom.digito
 
-import com.aventrix.jnanoid.jnanoid.NanoIdUtils
-import com.wedecom.digito.api.AddPerson
-import com.wedecom.digito.api.CreateVisit
 import mu.KotlinLogging
 import org.axonframework.commandhandling.gateway.CommandGateway
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import java.util.*
 
 
 @SpringBootApplication
@@ -18,7 +14,7 @@ class DigitoApplication(var cmdGtw: CommandGateway) : ApplicationRunner {
     private val log = KotlinLogging.logger {}
 
     override fun run(args: ApplicationArguments?) {
-        log.info("Initializing data")
+/*        log.info("Initializing data")
 
         var visitId = NanoIdUtils.randomNanoId(Random(), charArrayOf('a', 'b', 'c', 'd', 'e', 'f', 'g'), 8)
         var tableId = NanoIdUtils.randomNanoId()
@@ -31,7 +27,7 @@ class DigitoApplication(var cmdGtw: CommandGateway) : ApplicationRunner {
         cmdGtw.sendAndWait<AddPerson>(AddPerson(visitId, personId, "Thomas"))
         cmdGtw.sendAndWait<AddPerson>(AddPerson(visitId, personId, "Hans"))
         cmdGtw.sendAndWait<AddPerson>(AddPerson(visitId, personId, "Werner"))
-        cmdGtw.sendAndWait<AddPerson>(AddPerson(visitId, personId, "Franz"))
+        cmdGtw.sendAndWait<AddPerson>(AddPerson(visitId, personId, "Franz"))*/
     }
 }
 
