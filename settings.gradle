@@ -1,4 +1,5 @@
 rootProject.name = 'digito'
+include 'client-ui'
 include 'ui'
 include 'backend'
 

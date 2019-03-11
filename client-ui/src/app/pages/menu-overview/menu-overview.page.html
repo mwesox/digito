@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-item>
+            <ion-buttons>
+                <ion-back-button></ion-back-button>
+            </ion-buttons>
+            <ion-title>Our Menu</ion-title>
+        </ion-item>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+        <ion-row *ngFor="let item of menuItems">
+            <ion-item-divider style="--padding-bottom: 1px"></ion-item-divider>
+            <ion-col align="top" size="4">
+                <div>{{item.name}}</div>
+                <ion-note>{{item.description}}</ion-note>
+            </ion-col>
+
+            <ion-col style="text-align: right" size="2"><b>{{item.price}} €</b></ion-col>
+
+            <ion-col style="alignment: right" size="2">
+                <ion-button size="small" (click)="state.addItem(item)">
+                    <ion-icon name="add"></ion-icon>
+                </ion-button>
+            </ion-col>
+
+            <ion-col size="2" style="justify-self: center; alignment-baseline: center">
+                <ion-badge color="dark" style="margin-top: 8px;">{{state.getSelectedAmount(item.id)}}</ion-badge>
+            </ion-col>
+
+            <ion-col style="alignment: right" size="2">
+                <ion-button size="small" color="danger" (click)="state.removeItem(item)">
+                    <ion-icon name="remove"></ion-icon>
+                </ion-button>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+
+
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <ion-item slot="end">
+            <div>{{state.calculatePrice() | currency:'EUR'}} </div>
+            <ion-button style="padding-left: 15%" (click)="nextClicked()">Next</ion-button>
+        </ion-item>
+
+    </ion-toolbar>
+</ion-footer>
+

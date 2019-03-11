@@ -1,0 +1,23 @@
+plugins {
+    id 'war'
+    id "com.moowork.node" version "1.2.0"
+}
+
+group 'com.wedecom'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+task buildIonic(type: NpmTask) {
+    args = ['run', 'build:ionic']
+}
+
+task serveIonic(type: NpmTask) {
+    args = ['run', 'start:ionic']
+}
+
+dependencies {
+
+}

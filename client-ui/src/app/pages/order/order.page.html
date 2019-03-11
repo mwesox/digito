@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>order</ion-title>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content paddin forceOverscroll="false">
+
+  <div>Items</div>
+  <div *ngFor="let item of state.getGroupedItemsByAmount() | keyvalue">
+    <div>Name: {{item.value}}x - {{item.key.name}} </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-item>Price: {{state.calculatePrice() |currency: 'EUR'}} <ion-button size="large" padding-start>Order now</ion-button></ion-item>
+</ion-footer>

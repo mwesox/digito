@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Home</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content padding forceOverscroll="false">
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Please scan the QR-Code v2</ion-card-title>
+      </ion-card-header>
+      <ion-card-content >
+        <div align="middle">
+          <ion-button size="large" (click)="scanCode()">Scan</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+  <div *ngIf="isFallback">
+    <ion-button (click)="fallbackNavigate()">Select Menu</ion-button>
+    <ion-input placeholder="Enter QR-Code" [(ngModel)]="codeValue"></ion-input>
+  </div>
+
+
+  <ion-note>{{status}}</ion-note>
+
+</ion-content>
